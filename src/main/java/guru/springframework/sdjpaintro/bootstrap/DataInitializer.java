@@ -27,11 +27,11 @@ public class DataInitializer implements CommandLineRunner {
 
         //new object and method from repository -> save
 
-        Book bookDDD = new Book("Domain Drive Design","123","RandomHouse");
+        Book bookDDD = new Book("Domain Drive Design","123","RandomHouse",null);
         Book savedDDD =bookRepository.save(bookDDD);
 
 
-        Book bookSIA = new Book("Spring In Action", "234234","oriely");
+        Book bookSIA = new Book("Spring In Action", "234234","oriely",null);
         Book savedSIA = bookRepository.save(bookSIA);
 
         //for each to iterate with lambda function
