@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Book {
     //ID, Generated Values and Stratey
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     //Properties of book class
     private String title;

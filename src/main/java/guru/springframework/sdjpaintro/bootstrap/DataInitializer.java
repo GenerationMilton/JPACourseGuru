@@ -1,6 +1,8 @@
 package guru.springframework.sdjpaintro.bootstrap;
 
+import guru.springframework.sdjpaintro.domain.AuthorUuid;
 import guru.springframework.sdjpaintro.domain.Book;
+import guru.springframework.sdjpaintro.repositories.AuthorUuidRepository;
 import guru.springframework.sdjpaintro.repositories.BookRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
@@ -12,9 +14,11 @@ public class DataInitializer implements CommandLineRunner {
 
     //inyectar el book repository y crear el constructor
     private final BookRepository bookRepository;
+    private final AuthorUuidRepository authorUuidRepository;
 
-    public DataInitializer(BookRepository bookRepository) {
+    public DataInitializer(BookRepository bookRepository, AuthorUuidRepository authorUuidRepository) {
         this.bookRepository = bookRepository;
+        this.authorUuidRepository= authorUuidRepository;
     }
 
     //implementar los metodos del CommandLineRunner
@@ -24,6 +28,7 @@ public class DataInitializer implements CommandLineRunner {
 
         //mysql
         bookRepository.deleteAll();
+        authorUuidRepository.deleteAll();
 
         //new object and method from repository -> save
 
@@ -40,6 +45,12 @@ public class DataInitializer implements CommandLineRunner {
             System.out.println("Book Title: "+book.getTitle());
 
         });
+
+        AuthorUuid authorUuid = new AuthorUuid();
+        authorUuid.setFirstName("Joe");
+        authorUuid.setLastName("Buck");
+        AuthorUuid savedAuthor = authorUuidRepository.save(authorUuid);
+        System.out.println("Saved Author UUID: " + savedAuthor.getId());
 
     }
 }
