@@ -19,6 +19,7 @@ public class Book {
     private String publisher;
     private Long authorId;
 
+
     //empty constructor
     public Book() {
 
@@ -29,6 +30,7 @@ public class Book {
         this.isbn = isbn;
         this.publisher = publisher;
         this.authorId=authorId;
+
     }
     //hash and equals method only ID is reference
     @Override
@@ -79,4 +81,11 @@ public class Book {
     }
 
 
+    public Long getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(Long authorId) {
+        this.authorId = authorId;
+    }
 }

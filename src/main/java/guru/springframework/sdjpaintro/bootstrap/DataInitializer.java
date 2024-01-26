@@ -27,7 +27,7 @@ public class DataInitializer implements CommandLineRunner {
 
         //new object and method from repository -> save
 
-        Book bookDDD = new Book("Domain Drive Design","123","RandomHouse",null);
+        Book bookDDD = new Book("Domain Drive Design","123","RandomHouse", null);
         Book savedDDD =bookRepository.save(bookDDD);
 
 
